@@ -37,6 +37,7 @@ namespace _Battler._Main
 
         [Header("Other Buttons")]
         [SerializeField] private Button _fightButton;
+        [SerializeField] private Button _skipButton;
 
         private PlayerData _money;
         private PlayerData _heath;
@@ -150,6 +151,11 @@ namespace _Battler._Main
 
             int enemyPower = _enemy.CalcPower();
             _countPowerEnemyText.text = $"Enemy Power {enemyPower}";
+            
+            if (playerData.DataType == DataType.Criminal)
+            {
+                CheckCriminalLevel(playerData.Value);
+            }
         }
 
         
@@ -173,6 +179,25 @@ namespace _Battler._Main
             string message = isVictory ? "Win" : "Lose";
 
             Debug.Log($"<color={color}>{message}!!!</color>");
+        }
+
+
+        private void CheckCriminalLevel(int value)
+        {
+            if (value <= 2)
+            {
+                DisplaySkipFightButton(true);
+            }
+            else
+            {
+                DisplaySkipFightButton(false);
+            }
+        }
+
+
+        private void DisplaySkipFightButton(bool display)
+        {
+            _skipButton.gameObject.SetActive(display);
         }
         
         
