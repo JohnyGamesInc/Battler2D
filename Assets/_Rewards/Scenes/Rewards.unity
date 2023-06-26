@@ -275,17 +275,6 @@ Transform:
   m_Father: {fileID: 1007119932}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &934722194 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2503832893932283986, guid: b151f1362595071469df6d0b6616435c, type: 3}
-  m_PrefabInstance: {fileID: 7623302075442191975}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5a2462bc67f34f4796211b3f0c2372d6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1007119931
 GameObject:
   m_ObjectHideFlags: 0
@@ -348,7 +337,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f374d04f5574c7d80585fe9ef419454, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _dailyRewardView: {fileID: 934722194}
+  _dailyRewardView: {fileID: 7623302075442191977}
   _currencyView: {fileID: 8540494193943606165}
 --- !u!4 &1396336668
 Transform:
@@ -372,38 +361,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2503832893932283986, guid: b151f1362595071469df6d0b6616435c, type: 3}
-      propertyPath: <TimeCooldown>k__BackingField
-      value: 60
-      objectReference: {fileID: 0}
-    - target: {fileID: 2503832893932283986, guid: b151f1362595071469df6d0b6616435c, type: 3}
-      propertyPath: <TimeDeadline>k__BackingField
-      value: 120
-      objectReference: {fileID: 0}
-    - target: {fileID: 7623302073948413708, guid: b151f1362595071469df6d0b6616435c, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7623302073948413708, guid: b151f1362595071469df6d0b6616435c, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7623302073948413708, guid: b151f1362595071469df6d0b6616435c, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7623302073948413708, guid: b151f1362595071469df6d0b6616435c, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7623302073948413708, guid: b151f1362595071469df6d0b6616435c, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7623302073948413708, guid: b151f1362595071469df6d0b6616435c, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 7623302074558342378, guid: b151f1362595071469df6d0b6616435c, type: 3}
       propertyPath: m_Name
       value: RewardsWindow
@@ -494,6 +451,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b151f1362595071469df6d0b6616435c, type: 3}
+--- !u!114 &7623302075442191977 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7623302075442191977, guid: b151f1362595071469df6d0b6616435c, type: 3}
+  m_PrefabInstance: {fileID: 7623302075442191975}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a2462bc67f34f4796211b3f0c2372d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &8540494193943606164
 PrefabInstance:
   m_ObjectHideFlags: 0

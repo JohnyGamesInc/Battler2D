@@ -96,7 +96,7 @@ namespace _Rewards._Main
             if (_coroutine == null)
                 return;
 
-            _dailyRewardView.StopCoroutine(_coroutine);
+            if (_dailyRewardView != null) _dailyRewardView.StopCoroutine(_coroutine);
             _coroutine = null;
         }
         
