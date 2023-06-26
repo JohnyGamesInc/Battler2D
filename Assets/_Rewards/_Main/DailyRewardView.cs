@@ -1,7 +1,9 @@
 ﻿using System;
 
+
 namespace _Rewards._Main
 {
+    
     internal sealed class DailyRewardView : RewardView
     {
         
@@ -11,9 +13,16 @@ namespace _Rewards._Main
 
         private void Awake()
         {
-            _currentActiveSlotKey = CurrentDailyActiveSlotKey;
-            _getRewardTimeKey = GetDailyRewardTimeKey;
+            Init(CurrentDailyActiveSlotKey, GetDailyRewardTimeKey);
         }
+
+        
+        protected override void Init(string currentActiveSlotKey, string getRewardTimeKey)
+        {
+            _currentActiveSlotKey = currentActiveSlotKey;
+            _getRewardTimeKey = getRewardTimeKey;
+        }
+        
         
     }
 }

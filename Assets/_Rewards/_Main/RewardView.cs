@@ -13,6 +13,8 @@ namespace _Rewards._Main
         
         protected string _currentActiveSlotKey;
         protected string _getRewardTimeKey;
+
+        protected abstract void Init(string currentActiveSlotKey, string getRewardTimeKey);
         
 
         [field: Header("Settings Time Get Reward")]

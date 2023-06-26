@@ -42,7 +42,7 @@ namespace _Rewards._Main
         }
         
         
-        public void Deinit()
+        public void DeInit()
         {
             if (!_isInitialized)
                 return;
@@ -216,10 +216,10 @@ namespace _Rewards._Main
             for (int i = 0; i < _slots.Count; i++)
             {
                 Reward reward = _rewardView.Rewards[i];
-                int countDay = i + 1;
+                int countTimeline = i + 1;
                 bool isSelected = i == _rewardView.CurrentActiveSlot;
 
-                _slots[i].SetData(reward, countDay, isSelected);
+                _slots[i].SetData(reward, countTimeline, isSelected);
             }
         }
         

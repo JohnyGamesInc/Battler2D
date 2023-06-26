@@ -16,10 +16,10 @@ namespace _Rewards._Main
         [SerializeField] private TMP_Text _countReward;
         
         
-        public void SetData(Reward reward, int countDay, bool isSelected)
+        public void SetData(Reward reward, int countTimeline, bool isSelected)
         {
             _iconCurrency.sprite = reward.IconCurrency;
-            _textDays.text = $"Day {countDay}";
+            _textDays.text = reward.RewardTimeType == RewardTimeType.Daily ? $"Day {countTimeline}" : $"Week {countTimeline}";
             _countReward.text = reward.CountCurrency.ToString();
 
             UpdateBackground(isSelected);
