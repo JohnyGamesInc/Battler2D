@@ -7,25 +7,25 @@ namespace _Rewards._Main
     internal sealed class MainController : MonoBehaviour
     {
         
-        [SerializeField] private DailyRewardView _dailyRewardView;
+        [SerializeField] private RewardView rewardView;
         [SerializeField] private CurrencyView _currencyView;
 
         
-        private DailyRewardController _dailyRewardController;
+        private RewardController _rewardController;
 
 
         private void Awake() =>
-            _dailyRewardController = new DailyRewardController(_dailyRewardView, _currencyView);
+            _rewardController = new RewardController(rewardView, _currencyView);
 
 
         private void Start()
         {
-            _dailyRewardController.Init();
+            _rewardController.Init();
         }
             
         
         private void OnDestroy() =>
-            _dailyRewardController.Deinit();
+            _rewardController.Deinit();
         
         
     }
