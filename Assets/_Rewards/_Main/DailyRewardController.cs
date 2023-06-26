@@ -17,7 +17,7 @@ namespace _Rewards._Main
         private List<RewardSlotView> _slots;
         private Coroutine _coroutine;
 
-        private bool _isGetReward;
+        private bool _isRewardReady;
         private bool _isInitialized;
         
         
@@ -28,8 +28,6 @@ namespace _Rewards._Main
         }
             
         
-
-
         public void Init()
         {
             if (_isInitialized)
@@ -84,8 +82,7 @@ namespace _Rewards._Main
             {
                 if (slot) Object.Destroy(slot.gameObject);
             }
-                
-
+            
             _slots.Clear();
         }
         
@@ -133,10 +130,10 @@ namespace _Rewards._Main
         
         private void ClaimReward()
         {
-            if (!_isGetReward)
+            if (!_isRewardReady)
                 return;
 
-            Reward reward = _dailyRewardView.Rewards[_dailyRewardView.CurrentSlotInActive];
+            Reward reward = _dailyRewardView.Rewards[_dailyRewardView.CurrentActiveSlot];
 
             switch (reward.RewardType)
             {
@@ -150,7 +147,7 @@ namespace _Rewards._Main
             }
 
             _dailyRewardView.TimeGetReward = DateTime.UtcNow;
-            _dailyRewardView.CurrentSlotInActive++;
+            _dailyRewardView.CurrentActiveSlot++;
 
             RefreshRewardsState();
         }
@@ -161,36 +158,33 @@ namespace _Rewards._Main
             bool gotRewardEarlier = _dailyRewardView.TimeGetReward.HasValue;
             if (!gotRewardEarlier)
             {
-                _isGetReward = true;
+                _isRewardReady = true;
                 return;
             }
 
-            TimeSpan timeFromLastRewardGetting =
-                DateTime.UtcNow - _dailyRewardView.TimeGetReward.Value;
+            TimeSpan timeFromLastRewardGetting = DateTime.UtcNow - _dailyRewardView.TimeGetReward.Value;
 
-            bool isDeadlineElapsed =
-                timeFromLastRewardGetting.Seconds >= _dailyRewardView.TimeDeadline;
+            bool isDeadlineElapsed = timeFromLastRewardGetting.TotalSeconds >= _dailyRewardView.TimeDeadline;
 
-            bool isTimeToGetNewReward =
-                timeFromLastRewardGetting.Seconds >= _dailyRewardView.TimeCooldown;
+            bool isTimeToGetNewReward = timeFromLastRewardGetting.TotalSeconds >= _dailyRewardView.TimeCooldown;
 
-            if (isDeadlineElapsed)
+            if (isDeadlineElapsed) 
                 ResetRewardsState();
 
-            _isGetReward = isTimeToGetNewReward;
+            _isRewardReady = isTimeToGetNewReward;
         }
 
         
         private void ResetRewardsState()
         {
             _dailyRewardView.TimeGetReward = null;
-            _dailyRewardView.CurrentSlotInActive = 0;
+            _dailyRewardView.CurrentActiveSlot = 0;
         }
 
 
         private void RefreshUi()
         {
-            _dailyRewardView.GetRewardButton.interactable = _isGetReward;
+            _dailyRewardView.GetRewardButton.interactable = _isRewardReady;
             _dailyRewardView.TimerNewReward.text = GetTimerNewRewardText();
             RefreshSlots();
         }
@@ -198,7 +192,7 @@ namespace _Rewards._Main
         
         private string GetTimerNewRewardText()
         {
-            if (_isGetReward)
+            if (_isRewardReady)
                 return "The reward is ready to be received!";
 
             if (_dailyRewardView.TimeGetReward.HasValue)
@@ -223,7 +217,7 @@ namespace _Rewards._Main
             {
                 Reward reward = _dailyRewardView.Rewards[i];
                 int countDay = i + 1;
-                bool isSelected = i == _dailyRewardView.CurrentSlotInActive;
+                bool isSelected = i == _dailyRewardView.CurrentActiveSlot;
 
                 _slots[i].SetData(reward, countDay, isSelected);
             }

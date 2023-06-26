@@ -29,7 +29,7 @@ namespace _Rewards._Main
         [field: SerializeField] public Button ResetButton { get; private set; }
         
         
-        public int CurrentSlotInActive
+        public int CurrentActiveSlot
         {
             get => PlayerPrefs.GetInt(CurrentSlotInActiveKey);
             set => PlayerPrefs.SetInt(CurrentSlotInActiveKey, value);
