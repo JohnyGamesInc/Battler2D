@@ -16,10 +16,10 @@ namespace _Rewards._Main
 
         protected abstract void Init(string currentActiveSlotKey, string getRewardTimeKey);
         
-
-        [field: Header("Settings Time Get Reward")]
-        [field: SerializeField] public float TimeCooldown { get; private set; } = 86400;
-        [field: SerializeField] public float TimeDeadline { get; private set; } = 172800;
+        
+        public float TimeCooldown { get; protected set; }
+        public float TimeDeadline { get; protected set; }
+        
 
         [field: Header("Settings Rewards")]
         [field: SerializeField] public List<Reward> Rewards { get; private set; }

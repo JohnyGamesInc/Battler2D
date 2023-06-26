@@ -373,6 +373,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1743170084, guid: b151f1362595071469df6d0b6616435c, type: 3}
+      propertyPath: _timeCooldown
+      value: 604800
+      objectReference: {fileID: 0}
+    - target: {fileID: 1743170084, guid: b151f1362595071469df6d0b6616435c, type: 3}
+      propertyPath: _timeDeadline
+      value: 1209600
+      objectReference: {fileID: 0}
     - target: {fileID: 4805809586201378440, guid: b151f1362595071469df6d0b6616435c, type: 3}
       propertyPath: m_Name
       value: RewardsWindow
