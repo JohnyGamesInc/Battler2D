@@ -18,6 +18,9 @@ namespace Tween
         [SerializeField] private float _duration = 0.6f;
         [SerializeField] private float _strength = 30f;
 
+        [SerializeField]
+        private string _newField = nameof(_newField);
+
 
         private void OnValidate() => InitComponents();
         private void Awake() => InitComponents();
@@ -34,7 +37,7 @@ namespace Tween
 
         private void OnButtonClick() =>
             ActivateAnimation();
-
+        
         private void ActivateAnimation()
         {
             switch (_animationButtonType)

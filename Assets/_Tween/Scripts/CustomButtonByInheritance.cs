@@ -12,12 +12,17 @@ namespace Tween
         public static string CurveEaseName => nameof(_curveEase);
         public static string DurationName => nameof(_duration);
 
+        public static string NewFieldName => nameof(_newField);
+        
+
         [SerializeField] private RectTransform _rectTransform;
 
         [SerializeField] private AnimationButtonType _animationButtonType = AnimationButtonType.ChangePosition;
         [SerializeField] private Ease _curveEase = Ease.Linear;
         [SerializeField] private float _duration = 0.6f;
         [SerializeField] private float _strength = 30f;
+
+        [SerializeField] private string _newField = nameof(_newField);
 
 
         protected override void Awake()
