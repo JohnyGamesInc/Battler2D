@@ -16,12 +16,14 @@ namespace _Battler._Main
         private const float KMoney = 5f;
         private const float KPower = 1.5f;
         private const float MaxHealthPlayer = 20;
+        private const float KCriminal = 3.0f;
 
         private readonly string _name;
 
         private int _moneyPlayer;
         private int _healthPlayer;
         private int _powerPlayer;
+        private int _criminalPlayer;
 
 
         public Enemy(string name) =>
@@ -43,6 +45,10 @@ namespace _Battler._Main
                 case DataType.Power:
                     _powerPlayer = playerData.Value;
                     break;
+                
+                case DataType.Criminal:
+                    _criminalPlayer = playerData.Value;
+                    break;
             }
 
             Debug.Log($"Notified {_name} change to {playerData.DataType:F}");
@@ -54,8 +60,9 @@ namespace _Battler._Main
             int kHealth = CalcKHealth();
             float moneyRatio = _moneyPlayer / KMoney;
             float powerRatio = _powerPlayer / KPower;
+            float criminalRation = _criminalPlayer / KCriminal;
 
-            return (int)(moneyRatio + kHealth + powerRatio);
+            return (int)(moneyRatio + kHealth + powerRatio + criminalRation);
         }
 
 
